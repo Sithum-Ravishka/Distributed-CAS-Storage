@@ -1,3 +1,3 @@
-module github.com/anthdm/foreverstore
+module cas-storage
 
 go 1.21.4
