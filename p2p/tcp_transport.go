@@ -93,3 +93,26 @@ func (t *TCPTransport) handleConn(conn net.Conn) {
 	}
 
 }
+
+// // Add the DialAndConnect method to TCPTransport
+// func (t *TCPTransport) DialAndConnect(addr string) error {
+// 	conn, err := net.Dial("tcp", addr)
+// 	if err != nil {
+// 		return err
+// 	}
+
+// 	peer := NewTCPPeer(conn, true)
+
+// 	if err := t.HandshakeFunc(peer); err != nil {
+// 		conn.Close()
+// 		return fmt.Errorf("TCP handshake error: %s", err)
+// 	}
+
+// 	t.mu.Lock()
+// 	t.peers[conn.RemoteAddr()] = peer
+// 	t.mu.Unlock()
+
+// 	go t.handleConn(conn)
+
+// 	return nil
+// }
